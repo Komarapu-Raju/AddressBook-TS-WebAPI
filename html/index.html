@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Address Book</title>
+        <link rel="stylesheet" href="../css/styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="header">
+            <h1 class="header-title">Address book</h1>
+        </div>
+        <div class="nav">
+            <div class="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#" id="home" onclick="goToHome()">Home</a></li>
+                    <li class="nav-item"><a href="#" id="add" onclick="openAddContactForm()">+Add</a></li>
+                </ul>
+            </div>
+            <div class="blog-image">
+                <img src="../images/blog-icon.png" alt="blog">
+            </div>
+        </div>
+        <div class="content">
+            <h3>Contacts</h3>
+            <div class="contacts-content" id="contact">
+                <div class="contact-list-container">
+                    <div class="contact-list" id="contactList">
+                    </div>
+                </div>
+                <div class="delete-contact-modal" id="deletContactModal">
+                    <div class="delete-modal-content">
+                        <p>Are you sure, you want to delete the contact?</p>
+                        <div class="delete-btn-container" id="deleteBtnContainer">
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-details-container" id="contactDetailsContainer">
+                    <div class="contact-details">
+                        <div class="contact-heading">
+                            <h2 id="contactName"></h2>
+                            <div class="contact-details-menu"id="contactDetailsOptions">
+                            </div>
+                        </div>
+                        <span class="email-details"><p>Email: </p><p id="contactEmail"></p></span>
+                        <div class="mobile-details">
+                            <span><p>Mobile: +91</p><p id="contactMobile"></p></span>
+                            <span><p>Landline: </p><p id="contactLandline"></p></span>
+                        </div>
+                        <span class="website-details"><p>Website:</p><p id="contactWebsite"></p></span>
+                        <div class="address-details"><p>Adress:</p><p id="contactAddress"></p></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="modal-bg-block" id="modalBackgroundBlock">
+            <div class="contact-form-modal" id="contactFormContainer">
+                <div class="modal-content" id="modalContent">
+                    <span class="close-btn" id="close" onclick="closeAddContactForm()">&times;</span>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-field">
+                            <label for="name">Name<p id="nameMandatory">*</p></label>
+                            <input type="text" id="name" name="name" onblur="validateMandatoryfield(id)">
+                        </div>
+                        <div class="form-field">
+                            <label for="email">Email<p id="emailMandatory">*</p></label>
+                            <input type="text" id="email" name="email" onblur="validateMandatoryfield(id)">
+                        </div>
+                        <div class="contact-field">
+                            <div class="form-field">
+                                <label for="mobile">Mobile<p id="mobileMandatory">*</p></label>
+                                <input type="text" id="mobile" name="mobile" onblur="validateMandatoryfield(id)">
+                            </div>
+                            <div class="form-field">
+                                <label for="landline">Landline</label>
+                                <input type="text" id="landline" name="landline">
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <label for="website">Website</label>
+                            <input type="text" id="website" name="website">
+                        </div>
+                        <div class="form-field">
+                            <label for="address">Address</label>
+                            <textarea id="address" name="address" rows="4" required></textarea>
+                        </div>
+                    </form>
+                    <div class="form-btn-container" id="btnContainer">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../scripts/main.js"></script>
+    </body>
+</html>

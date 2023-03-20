@@ -1,4 +1,4 @@
-const APIURL = "https://localhost:7214/ContactController/";
+const APIURL = "https://localhost:7214/api/Contact/";
 
 class Contact {
     constructor(
@@ -22,7 +22,7 @@ class AddressBook {
     getAllContacts() {
         $.ajax({
             type: 'GET',
-            url: APIURL + "GetContactList",
+            url: APIURL + "all",
             async: false,
             success: (response) => {
                 this.contactList = response.map(function (item: { id: number; name: string; email: string; mobile: string; landline: string; website: string; address: string }) {
@@ -36,7 +36,7 @@ class AddressBook {
     addContact(contact: Contact) {
         $.ajax({
             type: 'POST',
-            url: APIURL + "AddContact",
+            url: APIURL + "add",
             async: false,
             contentType: 'application/json',
             data: JSON.stringify(contact),
@@ -49,7 +49,7 @@ class AddressBook {
     updateContact(id: number, updateContact: Contact) {
         $.ajax({
             type: 'PUT',
-            url: APIURL + "UpdateContact",
+            url: APIURL + "update/"+id,
             async: false,
             data: JSON.stringify(updateContact),
             contentType: 'application/json',
@@ -62,7 +62,7 @@ class AddressBook {
     deleteContact(id: number) {
         $.ajax({
             type: 'DELETE',
-            url: APIURL + "DeleteContact/" + id,
+            url: APIURL + id,
             contentType: 'application/json',
             async: false,
             success: (response) => {
@@ -75,7 +75,7 @@ class AddressBook {
         var contact;
         $.ajax({
             type: 'GET',
-            url: APIURL + 'GetContactById/' + id,
+            url: APIURL + id,
             contentType: 'application/json',
             async: false,
             success: (item) => {
